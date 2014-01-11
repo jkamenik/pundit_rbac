@@ -93,8 +93,9 @@ We make no assumptions about how Permissions are stored or returned.  We simply 
 
 Lets assume your that users and roles are stored in a database but permissions in a YAML file.
 
+### permissions.yml
 
-```yaml permissions.yml
+```yaml 
 admin:
     User:
         show?:   true
@@ -104,6 +105,8 @@ user:
         show?:   true
         update?: false
 ```
+
+### code
 
 ```ruby
 class ApplicationPolicy < PunditRbac::RbacPolicy
