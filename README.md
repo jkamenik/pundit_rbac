@@ -120,6 +120,8 @@ class UserPolicy < ApplicationPolicy
 end
 ```
 
+`UserPolicy` is an RBAC policy and overrides the `update?` permission to ensure that users can update themselves, but otherwise defers to the RBAC logic.
+
 ```ruby
 class User < ActiveRecord::Base
     has_many :roles
@@ -138,9 +140,7 @@ class Role < ActiveRecord::Base
 end
 ```
 
-`UserPolicy` is an RBAC policy and overrides the `update?` permission to ensure that users can update themselves.
-
-`Role` loads the yaml file and just accesses keys in the nested hash.  If it fails it returns an empty permission set.
+`Role` loads the yaml file and just accesses keys in the nested hash.  If it fails, it returns an empty permission set.
 
 ## Contributing
 
