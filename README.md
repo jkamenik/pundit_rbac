@@ -93,7 +93,8 @@ We make no assumptions about how Permissions are stored or returned.  We simply 
 
 Lets assume your that users and roles are stored in a database but permissions in a YAML file.
 
-```yaml
+
+```yaml permissions.yml
 admin:
     User:
         show?:   true
@@ -114,7 +115,9 @@ class UserPolicy < ApplicationPolicy
         allowed? :update?
     end
 end
+```
 
+```ruby
 class User < ActiveRecord::Base
     has_many :roles
 end
